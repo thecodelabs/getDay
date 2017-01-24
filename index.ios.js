@@ -16,7 +16,7 @@ export default class getDay extends Component {
     for (var i = 0; i < 7; i++) {
       var day = moment().add(i, 'days').format('dddd');
       daysItem.push(
-        <DayItem day={day} daysUntil={i} key={i} />
+        <DayItem day={day} daysUntil={i + 1} key={i} />
       )
     }
     return daysItem;
@@ -24,12 +24,9 @@ export default class getDay extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>
-          Days of the week
-        </Text>
-        <Text>
+        <View>
           {this.days()}
-        </Text>
+        </View>
       </View>
     );
   }
@@ -41,9 +38,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  title: {
-    fontSize:25
   }
 });
 
